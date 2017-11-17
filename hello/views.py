@@ -26,23 +26,25 @@ def db(request):
 
 # added by Jung
 def keyboard(request):
-    return JsonResponse({
-        'type' : 'text',
-        })
-#   return JsonResponse({
-#                 'type' : 'buttons',
-#                 'buttons' : ['Choose 1','Choose 2']
-#                 })
+   return JsonResponse({
+                 'type' : 'buttons',
+                 'buttons' : ['Choose 1','Choose 2']
+                 })
 
 @csrf_exempt
 def message(request):
     json_str = ((request.body).decode('utf-8'))
     received_json_data = json.loads(json_str)
-    content = received_json_data['content']
+    cafeteria_name = received_json_data['content']
     today_date = datetime.date.today().strftime("%m %d")
-    data_will_be_send = {
-        'message': {
-            'text': connect_apiai.get_apiai(content)
+    
+    return JsonResponse({
+            'message': {
+                'text': today_date + 'of ' + cafeteria_name + ' menu'
+            },
+            'keyboard': {
+                'type': 'buttons',
+                'buttons' : ['Choose 1','Choose 2']
             }
-        }
-    return JsonResponse(data_will_be_send)
+
+        })
