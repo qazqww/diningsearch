@@ -1,5 +1,5 @@
 from django.shortcuts import render
-#from django.http import HttpResponse
+from django.http import HttpResponse
 from django.http import JsonResponse
 
 from .models import Greeting
@@ -47,11 +47,6 @@ def message(request):
             'message': {
                 'text': "hi"
             }
-            ,
-            'keyboard': {
-                'type': 'buttons',
-                'buttons': ['Choose 1', 'Choose 2']
-            }
         }
     else:
         data_will_be_send = {
@@ -60,5 +55,4 @@ def message(request):
             }
 
         }
-        
     return JsonResponse(data_will_be_send)
