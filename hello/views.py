@@ -27,8 +27,7 @@ def db(request):
 # added by Jung
 def keyboard(request):
     return JsonResponse({
-        'type' : 'buttons',
-        'buttons' : ['1','2']
+        'type' : 'text',
         })
  
 #   return JsonResponse({
