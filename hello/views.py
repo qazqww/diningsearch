@@ -48,11 +48,11 @@ def message(request):
             'message': {
                 'text': "hi"
             }
-            # ,
-            # 'keyboard': {
-            #     'type': 'buttons',
-            #     'buttons': ['Choose 1', 'Choose 2']
-            # }
+            ,
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': ['Choose 1', 'Choose 2']
+            }
         }
     else:
         data_will_be_send = {
