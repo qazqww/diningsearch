@@ -29,7 +29,6 @@ def keyboard(request):
     return JsonResponse({
         'type' : 'text',
         })
- 
 #   return JsonResponse({
 #                 'type' : 'buttons',
 #                 'buttons' : ['Choose 1','Choose 2']
@@ -41,18 +40,9 @@ def message(request):
     received_json_data = json.loads(json_str)
     content = received_json_data['content']
     today_date = datetime.date.today().strftime("%m %d")
-    
-    if "hi" in content:
-        data_will_be_send = {
-            'message': {
-                'text': "hi"
+    data_will_be_send = {
+        'message': {
+            'text': connect_apiai.get_apiai(content)
             }
-        }
-    else:
-        data_will_be_send = {
-            'message': {
-                'text': connect_apiai.get_apiai(content)
-            }
-
         }
     return JsonResponse(data_will_be_send)
