@@ -7,7 +7,7 @@ from .models import Greeting
 #added by Jung
 from django.views.decorators.csrf import csrf_exempt
 import json, datetime
-from . import connect_apiai
+import connect_apiai
 from .models import Foodlist
 
 # Create your views here.
@@ -39,6 +39,13 @@ def keyboard(request):
 
 @csrf_exempt
 def message(request):
+    foodlists = Foodlist.objects.all()
+    list1 = []
+    str = ''
+    for foodlist in foodlists:
+        list1.append(foodlist)
+        #str += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
+    
     json_str = ((request.body).decode('utf-8'))
     received_json_data = json.loads(json_str)
     content = received_json_data['content']
@@ -54,6 +61,12 @@ def message(request):
             #     'type': 'buttons',
             #     'buttons': ['Choose 1', 'Choose 2']
             # }
+        }
+    elif "" in content:
+        data_will_be_send = {
+            'message': {
+                'text': connect_apiai.get_price(content)
+            }
         }
     else:
         data_will_be_send = {

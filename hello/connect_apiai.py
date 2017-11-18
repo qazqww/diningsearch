@@ -23,3 +23,16 @@ def get_apiai(message):
     responsestr = response.read().decode('utf-8')
     response_obj = json.loads(responsestr)
     return response_obj["result"]["fulfillment"]["speech"]
+    
+def get_price(message):
+    ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
+    request = ai.text_request()
+    request.lang = 'en'  # optional, default value equal 'en'
+
+    request.query = message
+
+    response = request.getresponse()
+    responsestr = response.read().decode('utf-8')
+    response_obj = json.loads(responsestr)
+    return response_obj["result"]["parameters"]["number"]
+    
