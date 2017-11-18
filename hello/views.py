@@ -62,7 +62,7 @@ def message(request):
             #     'buttons': ['Choose 1', 'Choose 2']
             # }
         }
-    elif "" in content:
+    elif "5000" in content:
         data_will_be_send = {
             'message': {
                 'text': connect_apiai.get_price(content)
