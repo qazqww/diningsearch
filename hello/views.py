@@ -37,10 +37,10 @@ def message(request):
     content = received_json_data['content']
     today_date = datetime.date.today().strftime("%m %d")
     
-    if "hi" in content:
+    if "man" in content:
         data_will_be_send = {
             'message': {
-                'text': "hi"
+                'text': "maaaaaaan"
             }
             # ,
             # 'keyboard': {
