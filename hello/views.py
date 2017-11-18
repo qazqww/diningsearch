@@ -58,3 +58,20 @@ def message(request):
     return JsonResponse(data_will_be_send)
     
     ######commit please
+
+@csrf_exempt
+def action(request):
+    json_str = ((request.body).decode('utf-8'))
+    received_json_data = json.loads(json_str)
+    content = received_json_data['content']
+    today_date = datetime.date.today().strftime("%m %d")
+    
+    data_will_be_send = {
+        "speech": "Barack Hussein Obama II was the 44th and current President of the United States.",
+        "displayText": "Barack Hussein Obama II was the 44th and current President of the United States, and the first African American to hold the office. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University   and Harvard Law School, where ",
+        "data": {},
+        "contextOut": [],
+        "source": "DuckDuckGo"
+    }
+    
+    return JsonResponse(data_will_be_send)
