@@ -7,7 +7,7 @@ from .models import Greeting
 #added by Jung
 from django.views.decorators.csrf import csrf_exempt
 import json, datetime
-import connect_apiai
+from . import connect_apiai
 from .models import Foodlist
 
 # Create your views here.
