@@ -62,12 +62,12 @@ def message(request):
             #     'buttons': ['Choose 1', 'Choose 2']
             # }
         }
-    #elif "" in content:
-    #    data_will_be_send = {
-    #        'message': {
-    #            'text': connect_apiai.get_price(content)
-    #        }
-    #    }
+    elif "" in content:
+        data_will_be_send = {
+            'message': {
+                'text': connect_apiai.get_price(content)
+            }
+        }
     else:
         data_will_be_send = {
             'message': {
