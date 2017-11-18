@@ -8,11 +8,18 @@ from .models import Greeting
 from django.views.decorators.csrf import csrf_exempt
 import json, datetime
 from . import connect_apiai
+from .models import Foodlist
 
 # Create your views here.
 def index(request):
+    foodlists = Foodlist.objects.all()
+    str = ''
+    for foodlist in foodlists:
+        str += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
+    
+    return HttpResponse(str)
     # return HttpResponse('Hello from Python!')
-    return render(request, 'index.html')
+    # return render(request, 'index.html')
 
 
 def db(request):

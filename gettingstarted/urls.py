@@ -11,4 +11,5 @@ import hello.views
 
 urlpatterns = [
     url(r'',include('hello.urls')),
+    url(r'^admin/', admin.site.urls),
 ]
