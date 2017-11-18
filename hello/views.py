@@ -12,14 +12,14 @@ from .models import Foodlist
 
 # Create your views here.
 def index(request):
-    foodlists = Foodlist.objects.all()
-    str = ''
-    for foodlist in foodlists:
-        str += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
-    
-    return HttpResponse(str)
+#    foodlists = Foodlist.objects.all()
+#    str = ''
+#    for foodlist in foodlists:
+#        str += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
+#    
+#    return HttpResponse(str)
     # return HttpResponse('Hello from Python!')
-    # return render(request, 'index.html')
+     return render(request, 'index.html')
 
 
 def db(request):
@@ -39,12 +39,12 @@ def keyboard(request):
 
 @csrf_exempt
 def message(request):
-    foodlists = Foodlist.objects.all()
-    list1 = []
-    str = ''
-    for foodlist in foodlists:
-        list1.append(foodlist)
-        #str += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
+#    foodlists = Foodlist.objects.all()
+#    list1 = []
+#    str = ''
+#    for foodlist in foodlists:
+#        list1.append(foodlist)
+#        #str += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
     
     json_str = ((request.body).decode('utf-8'))
     received_json_data = json.loads(json_str)
@@ -62,12 +62,12 @@ def message(request):
             #     'buttons': ['Choose 1', 'Choose 2']
             # }
         }
-    elif "" in content:
-        data_will_be_send = {
-            'message': {
-                'text': connect_apiai.get_price(content)
-            }
-        }
+    #elif "" in content:
+    #    data_will_be_send = {
+    #        'message': {
+    #            'text': connect_apiai.get_price(content)
+    #        }
+    #    }
     else:
         data_will_be_send = {
             'message': {
@@ -79,19 +79,19 @@ def message(request):
     
     ######commit please
 
-@csrf_exempt
-def action(request):
-    json_str = ((request.body).decode('utf-8'))
-    received_json_data = json.loads(json_str)
-    content = received_json_data['content']
-    today_date = datetime.date.today().strftime("%m %d")
-    
-    data_will_be_send = {
-        "speech": "Barack Hussein Obama II was the 44th and current President of the United States.",
-        "displayText": "Barack Hussein Obama II was the 44th and current President of the United States, and the first African American to hold the office. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University   and Harvard Law School, where ",
-        "data": {},
-        "contextOut": [],
-        "source": "DuckDuckGo"
-    }
-    
-    return JsonResponse(data_will_be_send)
+#@csrf_exempt
+#def action(request):
+#    json_str = ((request.body).decode('utf-8'))
+#    received_json_data = json.loads(json_str)
+#    content = received_json_data['content']
+#    today_date = datetime.date.today().strftime("%m %d")
+#    
+#    data_will_be_send = {
+#        "speech": "Barack Hussein Obama II was the 44th and current President of the United States.",
+#        "displayText": "Barack Hussein Obama II was the 44th and current President of the United States, and the first African American to hold the office. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University   and Harvard Law School, where ",
+#        "data": {},
+#        "contextOut": [],
+#        "source": "DuckDuckGo"
+#    }
+#    
+#    return JsonResponse(data_will_be_send)
