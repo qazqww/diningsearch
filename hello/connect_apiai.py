@@ -22,4 +22,4 @@ def get_apiai(message):
     response = request.getresponse()
     responsestr = response.read().decode('utf-8')
     response_obj = json.loads(responsestr)
-    return response_obj["result"]["fulfillment"]["speech"] + response_obj["result"]["fulfillment"]["speech"]
+    return response_obj["result"]["fulfillment"]["speech"] + ' ' + response_obj["result"]["fulfillment"]["messages"]["speech"]
