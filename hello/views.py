@@ -53,10 +53,13 @@ def message(request):
     content = received_json_data['content']
     today_date = datetime.date.today().strftime("%m %d")
     
-    low = ['ramen', 'gimbap']
-    lowmid = ['jjajang', 'sandwich']
-    mid = ['pasta', 'sushi']
-    high = ['pizza', 'steak']
+    low = ['ramen', 'gimbap', 'flour based food (tteok-bokki, etc.)', 'lunch box']
+    lowmid = ['chinese restau.(jajangmyeon, jjamppong, etc.)', 'sandwich', 'gukbap or jjigae', 'hamburger', 
+    'bowl of rice', 'lunch box', 'cold noodles', 'donburi', 'rice noodles', 'curry', 'japanese ramen', 'pork cutlet']
+    mid = ['pasta', 'sushi', 'hamburger steak', 'fried chicken', 'chicken cuisine(steamed chicken, samgyetang, etc..)'
+    , 'cold noodles (of Pyongyang)', 'donburi', 'rice noodles', 'curry', 'japanese ramen', 'pork cutlet']
+    high = ['pizza', 'steak', 'jokbal/bossam', 'meat', 'family restaurant', 'buffet', 'raw dishes(sashimi) / seafood'
+    , 'shabu-shabu']
     choicemenu = ""
     
     if "man" in content:
@@ -82,7 +85,7 @@ def message(request):
             
         data_will_be_send = {
                 'message': {
-                'text': choicemenu
+                'text': "I recommend you to eat " + choicemenu + "."
                 }
             }
     else:
