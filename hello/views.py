@@ -12,14 +12,14 @@ from .models import Foodlist
 
 # Create your views here.
 def index(request):
-#    foodlists = Foodlist.objects.all()
-#    str = ''
-#    for foodlist in foodlists:
-#        str += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
-#    
-#    return HttpResponse(str)
+    foodlists = Foodlist.objects.all()
+    str = ''
+    for foodlist in foodlists:
+        str += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
+    
+    return HttpResponse(str)
     # return HttpResponse('Hello from Python!')
-     return render(request, 'index.html')
+    # return render(request, 'index.html')
 
 
 def db(request):
@@ -39,12 +39,10 @@ def keyboard(request):
 
 @csrf_exempt
 def message(request):
-#    foodlists = Foodlist.objects.all()
-#    list1 = []
-#    str = ''
-#    for foodlist in foodlists:
-#        list1.append(foodlist)
-#        #str += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
+    foodlists = Foodlist.objects.all()
+    str = ''
+    for foodlist in foodlists:
+        str += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
     
     json_str = ((request.body).decode('utf-8'))
     received_json_data = json.loads(json_str)
@@ -63,11 +61,24 @@ def message(request):
             # }
         }
     elif "hey" in content:
-        data_will_be_send = {
-            'message': {
-                'text': str(int(connect_apiai.get_apiai(content)) - 4000)
+        if connect_apiai.get_apiai(content) > 5000:
+            data_will_be_send = {
+                'message': {
+                    'text': str(int(connect_apiai.get_apiai(content)) - 4000)
+                }
             }
-        }
+        else:
+            data_will_be_send = {
+                'message': {
+                    'text': str(int(connect_apiai.get_apiai(content)) - 4000)
+                }
+            }
+    elif "database" in content:
+        data_will_be_send = {
+                'message': {
+                    'text': str
+                }
+            }
     else:
         data_will_be_send = {
             'message': {
