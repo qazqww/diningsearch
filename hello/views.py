@@ -12,15 +12,14 @@ from .models import Foodlist
 
 # Create your views here.
 def index(request):
-    foodlists = Foodlist.objects.all()
-    strx = ''
-    for foodlist in foodlists:
-        strx += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
-    
-    return HttpResponse(strx)
-    # return HttpResponse('Hello from Python!')
+    #foodlists = Foodlist.objects.all()
+    #strx = ''
+    #for foodlist in foodlists:
+    #    strx += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
+    #
+    #return HttpResponse(strx)
+    return HttpResponse('Hello from Python!')
     # return render(request, 'index.html')
-
 
 def db(request):
 
@@ -60,13 +59,13 @@ def message(request):
         if connect_apiai.get_apiai(content) > 5000:
             data_will_be_send = {
                 'message': {
-                    'text': str(int(connect_apiai.get_apiai(content)))
+                    'text': connect_apiai.get_apiai(content)
                 }
             }
         else:
             data_will_be_send = {
                 'message': {
-                    'text': connect_apiai.get_apiai("hi")
+                    'text': str(int(connect_apiai.get_apiai(content)) - 2500)
                 }
             }
     else:
