@@ -8,7 +8,9 @@ from .models import Greeting
 from django.views.decorators.csrf import csrf_exempt
 import json, datetime
 from . import connect_apiai
+
 from .models import Foodlist
+from random import choice
 
 # Create your views here.
 def index(request):
@@ -51,6 +53,12 @@ def message(request):
     content = received_json_data['content']
     today_date = datetime.date.today().strftime("%m %d")
     
+    low = ['ramen', 'gimbap']
+    lowmid = ['jjajang', 'sandwich']
+    mid = ['pasta', 'sushi']
+    high = ['pizza', 'steak']
+    choicemenu = ""
+    
     if "man" in content:
         data_will_be_send = {
             'message': {
@@ -63,16 +71,18 @@ def message(request):
             # }
         }
     elif "price" in content:
-        if int(connect_apiai.get_apiai(content)) > 5000:
-            data_will_be_send = {
-                'message': {
-                'text': "over 5000"
-                }
-            }
+        if int(connect_apiai.get_apiai(content)) > 12000:
+            choicemenu = choice(high)
+        elif int(connect_apiai.get_apiai(content)) > 7000:
+            choicemenu = choice(mid)
+        elif int(connect_apiai.get_apiai(content)) > 4000:
+            choicemenu = choice(lowmid)
         else:
-            data_will_be_send = {
+            choicemenu = choice(low)
+            
+        data_will_be_send = {
                 'message': {
-                'text': "less 5000"
+                'text': choicemenu
                 }
             }
     else:
