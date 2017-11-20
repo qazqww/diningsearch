@@ -62,17 +62,17 @@ def message(request):
             #     'buttons': ['Choose 1', 'Choose 2']
             # }
         }
-    elif "hey" in content:
-        if connect_apiai.get_apiai(content) > 5000:
+    elif "price" in content:
+        if int(connect_apiai.get_apiai(content)) > 5000:
             data_will_be_send = {
                 'message': {
-                    'text': "over 5000"
+                'text': "over 5000"
                 }
             }
         else:
             data_will_be_send = {
                 'message': {
-                    'text': "less 5000"
+                'text': "less 5000"
                 }
             }
     else:
