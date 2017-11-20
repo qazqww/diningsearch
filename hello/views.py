@@ -65,14 +65,19 @@ def message(request):
     if "man" in content:
         data_will_be_send = {
             'message': {
-                'text': "maaaaaaan"
+                'text': "maaaaaaan",
+                'photo': {
+                    'url': "http://postfiles4.naver.net/MjAxNzEwMjNfMzAw/MDAxNTA4NzU5OTIxNjQ0.Qduj5x9C3tECv_sUoE0BJrTIdR1t9hc_-oCgyTqJchAg.70KA_53h3Eta6PD8gqwOg5W1a4vC_Q6d0z2rZ0mCg-Mg.JPEG.qazqww/1.jpg?type=w2",
+                    'width': 640,
+                    'height': 480
+                    }
+                }
             }
             # ,
             # 'keyboard': {
             #     'type': 'buttons',
             #     'buttons': ['Choose 1', 'Choose 2']
             # }
-        }
     elif "price" in content:
         if int(connect_apiai.get_apiai(content)) > 12000:
             choicemenu = choice(high)
