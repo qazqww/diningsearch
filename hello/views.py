@@ -66,13 +66,13 @@ def message(request):
         if connect_apiai.get_apiai(content) > 5000:
             data_will_be_send = {
                 'message': {
-                    'text': str(int(connect_apiai.get_apiai(content)) - 4000)
+                    'text': "over 5000"
                 }
             }
         else:
             data_will_be_send = {
                 'message': {
-                    'text': str(int(connect_apiai.get_apiai(content)) - 4000)
+                    'text': "less 5000"
                 }
             }
     else:
