@@ -65,7 +65,7 @@ def message(request):
     elif "hey" in content:
         data_will_be_send = {
             'message': {
-                'text': int(connect_apiai.get_apiai(content)) - 4000
+                'text': str(int(connect_apiai.get_apiai(content)) - 4000)
             }
         }
     else:

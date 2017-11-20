@@ -24,7 +24,7 @@ def get_apiai(message):
     response_obj = json.loads(responsestr)
     
     if response_obj["result"]["metadata"]["intentName"] == 'wholerandom':
-        return "How about" + response_obj["result"]["fulfillment"]["speech"]
+        return "How about " + response_obj["result"]["fulfillment"]["speech"]
     else:
         return response_obj["result"]["fulfillment"]["speech"]
     
