@@ -10,13 +10,12 @@ import json, datetime
 from . import connect_apiai
 from .models import Foodlist
 
-foodlists = Foodlist.objects.all()
-strx = ''
-for foodlist in foodlists:
-    strx += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
-
 # Create your views here.
 def index(request):
+    foodlists = Foodlist.objects.all()
+    strx = ''
+    for foodlist in foodlists:
+        strx += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
     
     return HttpResponse(strx)
     # return HttpResponse('Hello from Python!')
@@ -67,11 +66,9 @@ def message(request):
         else:
             data_will_be_send = {
                 'message': {
-                    'text': str(int(connect_apiai.get_apiai(content)) - 4000)
+                    'text': connect_apiai.get_apiai("hi")
                 }
             }
-    elif "database" in content:
-        return HttpResponse(strx)
     else:
         data_will_be_send = {
             'message': {
