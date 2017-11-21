@@ -62,7 +62,7 @@ def message(request):
     highhigh = ['steak', 'meat', 'family restaurant', 'buffet', 'raw dishes(sashimi) / seafood']
     choicemenu = ""
     
-    if "man" in content:
+    if "manman" in content:
         data_will_be_send = {
             'message': {
                 'text': "maaaaaaan",
