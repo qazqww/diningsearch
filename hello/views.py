@@ -103,7 +103,12 @@ def message(request):
             
         data_will_be_send = {
                 'message': {
-                'text': "I recommend you to eat " + choicemenu + "."
+                'text': "I recommend you to eat " + choicemenu + ".",
+                'photo': {
+                    'url': menuurl,
+                    'width': 640,
+                    'height': 480
+                    }
                 }
             }
     else:
