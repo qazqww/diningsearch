@@ -100,7 +100,46 @@ def message(request):
             menuurl = "http://postfiles14.naver.net/MjAxNzExMjFfMTMw/MDAxNTExMjM3NDU2Nzg5.4sSNCfOPU7duj2iIbgQ3AoWG2foxYYFsjvoHeiiRomUg.qqcqbaAJNAQXdY8g-0k9XFQm2oGEHffipGdk_luTcksg.JPEG.qazqww/1.JPG?type=w2"
         elif choicemenu == 'lunch box':
             menuurl = "http://postfiles1.naver.net/MjAxNzExMjFfNzYg/MDAxNTExMjM3NTU3NzQ2.3f39ZE3v9R-7Gm1fWZYxRo3fssDSkstDP5ZZS8-ZA4kg.s_JyphELSkgNGTtOOWvjRzCI00NHS9QUQ2FLinu4Qqgg.JPEG.qazqww/lunchbox.jpg?type=w2"
+        elif choicemenu == 'chinese restau.(jajangmyeon, jjamppong, etc.)':
+            menuurl = "http://postfiles8.naver.net/MjAxNzExMjFfMjU1/MDAxNTExMjM4MDIzNjMx.zk5qx0j2YLdVe8e5hhvs0CGkTZ2F6rLMsiJgu23p0F0g.BIXjqo7kwxa1yNFb-2lGkcc6OPdW97oXAor5n0wd8q0g.PNG.qazqww/chinese.png?type=w2"
+        elif choicemenu == 'sandwich':
+            menuurl = "http://postfiles8.naver.net/MjAxNzExMjFfMTIw/MDAxNTExMjM4MDIzODM2.LkAFE-hwYw0jccwx8JZ6H80fHG81-bwQ6dxxLBQCAPAg.1EaovBbAB1awrRxo3iWy_QypiPeKU102Eq7V9cr0RQYg.JPEG.qazqww/sandwich.jpg?type=w2"
+        elif choicemenu == 'gukbap or jjigae':
+            menuurl = "http://postfiles2.naver.net/MjAxNzExMjBfMTM1/MDAxNTExMTg3MzQ4MDQw.mgBrer56H1dttKW4s_8k1CF_Fbp5TNT-G-VQZggxxPsg.OXCpnq4Wogw4ng7qEc5iSReEUlX84gqKJZ7Gb6ATNMMg.JPEG.qazqww/jjigae.jpg?type=w2"
+        elif choicemenu == 'hamburger':
+            menuurl = "http://postfiles5.naver.net/MjAxNzExMjBfNzkg/MDAxNTExMTg3MzQ5NTE5.3AqmoHH7zE4k1E4XS9_F3OwZjELbOkM5P3-zNYZ3Sfwg.p1iV7glGCOKCVpnXMw3Q_k_gVDEdQh75qxlU11wCdg4g.PNG.qazqww/whopper.png?type=w2"
+        elif choicemenu == 'bowl of rice':
+            menuurl = "http://postfiles13.naver.net/MjAxNzExMjFfNzMg/MDAxNTExMjM4MTE2MzQ1.GO88VdmoRT1vF8L7BA8zZub44bl-3TRfT6EKCykLCVog.3VKvKh8hCm0pjEjZdr4qXWJlTKn_1COXer-xtRssfZwg.JPEG.qazqww/bowl.jpg?type=w2"
+        elif choicemenu == 'cold noodles':
+            menuurl = "http://postfiles16.naver.net/MjAxNzExMjBfMTAx/MDAxNTExMTg3MzQ3MzAw.w3JvoO4uwYa6e6rAb9SlP3Sk55CJTNUl5chf2X8nglUg.wat9NKENg2Nv9zHVgaT3elrJmkpfTmjTnbgdqPzbgskg.JPEG.qazqww/coldnoodles.jpg?type=w2"
+        elif choicemenu == 'donburi':
+            menuurl = "http://postfiles11.naver.net/MjAxNzExMjFfMjcw/MDAxNTExMjM4Mjc3Nzk1.czMM_Rwsl7pk4zLYlyKbsr-AdDfmLjfTGwkjaYR1bjEg.iziwlliP_wQxv2nPEFZbljpEZNdg72X46ClH7IDajcog.JPEG.qazqww/donburi.jpg?type=w2"
+        elif choicemenu == 'rice noodles':
+            menuurl = "http://postfiles16.naver.net/MjAxNzExMjFfNzUg/MDAxNTExMjM4Mjc3OTY4.JDeYNH9OdDXXooC0F96XfrK7gBtUNzGz2mIocd4JK-kg.VXiZp1S_W5u5zdDeUrSd4C6jszn_Yc_a7x4WzWKDmXwg.JPEG.qazqww/ricenoodles.jpg?type=w2"
+        elif choicemenu == 'curry':
+            menuurl = "http://postfiles5.naver.net/MjAxNzExMjBfOTAg/MDAxNTExMTg3MzQ3NTA3.QvdoSxaagzm8XJZRUOx7Aqa57rmcCLWO5sljnu52wBgg.ABi18o7729E1M2ya0veZCpfOQ_dDz4x5r8qNAmdMP7Ag.JPEG.qazqww/curry.jpg?type=w2"
+        elif choicemenu == 'japanese ramen':
+            menuurl = "http://postfiles15.naver.net/MjAxNzExMjBfNSAg/MDAxNTExMTg3MzQ4NTI0.dwTFe0gp_rvpugSPsmbne1rgrG6f0wtJbGYUJ4OAJ34g.PKcPrVQvxzjL0ReJ0FbeYtx2ixnsRPeA9FV-3XCiwh0g.JPEG.qazqww/jramen.jpg?type=w2"
+        elif choicemenu == 'pork cutlet':
+            menuurl = "http://postfiles3.naver.net/MjAxNzExMjBfMjYz/MDAxNTExMTg3MzQ5NzQw.C33rKIytDNzdMZldGRoqlfVqj3lzm2YsdFQpncUrO-Qg.Q9GPdA7_7tHRoKSatJDbYitKdsMJPoE6um5zPnp8Wtsg.JPEG.qazqww/porkcutlet.jpg?type=w2"
+        elif choicemenu == 'pasta':
+            menuurl = "http://postfiles1.naver.net/MjAxNzExMjBfMjIy/MDAxNTExMTg3MzQ4Nzkw.7DZ48tw-MIrF5d1Ln6YyGeDwP8xRD99gQBYfH6U1GOwg.VpWD9VYh_zlRBxDmNkw4qZlH-Kfnkd4HvYJuXdSJttMg.JPEG.qazqww/pasta.jpg?type=w2"
+        elif choicemenu == 'sushi':
+            menuurl = ""
+        elif choicemenu == 'hamburger steak':
+            menuurl = ""
+        elif choicemenu == 'fried chicken':
+            menuurl = "http://postfiles10.naver.net/MjAxNzExMjBfMjA5/MDAxNTExMTg3MzQ2OTY2.oqBoc24xgFV_jEE_QVjfrdBiO6-AX1qOhHPLBqCaTUgg.OctCB_YmkhEa9QzAEOxMqI_SH96GnYn9GhIFzb16xKkg.JPEG.qazqww/chicken.jpg?type=w2"
+        elif choicemenu == 'chicken cuisine(steamed chicken, samgyetang, etc..)':
+            menuurl = ""
+        elif choicemenu == 'cold noodles (of Pyongyang)':
+            menuurl = ""
+        elif choicemenu == 'pizza':
+            menuurl = ""
             
+        #high = ['pizza', 'jokbal/bossam', 'meat', 'buffet', 'shabu-shabu']
+    #highhigh = ['steak', 'meat', 'family restaurant', 'buffet', 'raw dishes(sashimi) / seafood']
+    
         data_will_be_send = {
                 'message': {
                 'text': "I recommend you to eat " + choicemenu + ".",
