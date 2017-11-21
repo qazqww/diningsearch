@@ -79,6 +79,8 @@ def message(request):
             #     'buttons': ['Choose 1', 'Choose 2']
             # }
     elif "price" in content:
+        menuurl = ""
+        
         if int(connect_apiai.get_apiai(content)) > 20000:
             choicemenu = choice(highhigh)
         elif int(connect_apiai.get_apiai(content)) > 12500:
@@ -89,8 +91,6 @@ def message(request):
             choicemenu = choice(lowmid)
         else:
             choicemenu = choice(low)
-            
-        menuurl = ""
         
         if choicemenu == 'ramen':
             menuurl = "http://postfiles2.naver.net/MjAxNzExMjBfMjE5/MDAxNTExMTg3MzQ5MTIy.bIhSvEmClXmzVe3iqNrXVOF9FJM1wPeZQeo2LcR1KT8g.X06R99h23sRZxdu9IPh860HrF7ztgGF42ivS0MxlgeEg.JPEG.qazqww/ramen.jpg?type=w2"
