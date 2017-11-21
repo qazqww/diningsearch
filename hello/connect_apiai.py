@@ -25,8 +25,6 @@ def get_apiai(message):
     
     if response_obj["result"]["metadata"]["intentName"] == 'wholerandom':
         return "How about " + response_obj["result"]["fulfillment"]["speech"]
-    elif response_obj["result"]["source"] == 'domains':
-        return response_obj["result"]["fulfillment"]["messages"]["speech"]
     else:
         return response_obj["result"]["fulfillment"]["speech"]
     
