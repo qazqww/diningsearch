@@ -125,20 +125,31 @@ def message(request):
         elif choicemenu == 'pasta':
             menuurl = "http://postfiles1.naver.net/MjAxNzExMjBfMjIy/MDAxNTExMTg3MzQ4Nzkw.7DZ48tw-MIrF5d1Ln6YyGeDwP8xRD99gQBYfH6U1GOwg.VpWD9VYh_zlRBxDmNkw4qZlH-Kfnkd4HvYJuXdSJttMg.JPEG.qazqww/pasta.jpg?type=w2"
         elif choicemenu == 'sushi':
-            menuurl = ""
+            menuurl = "http://postfiles15.naver.net/MjAxNzExMjFfMjcw/MDAxNTExMjM4ODAzOTY2.A2LEX8awyMrz7aE7kxJ50yotAruIW5WrU0OdctCPEtog.mA_KCkWu8-X3LyAE2GmNfvgiMNop7ftd0YJkba6xkeog.JPEG.qazqww/sushi.jpg?type=w2"
         elif choicemenu == 'hamburger steak':
-            menuurl = ""
+            menuurl = "http://postfiles2.naver.net/MjAxNzExMjFfMjk1/MDAxNTExMjM4ODAzODIz.sohCnWIkb4yoO8hmEjl0A-lixNAUlNHyRDhVOUGc4ewg.b8KsAIjy_cL2hyuWzg4Ck_exAAyZA3-pQs1CgBF4-O4g.JPEG.qazqww/hsteak.jpg?type=w2"
         elif choicemenu == 'fried chicken':
             menuurl = "http://postfiles10.naver.net/MjAxNzExMjBfMjA5/MDAxNTExMTg3MzQ2OTY2.oqBoc24xgFV_jEE_QVjfrdBiO6-AX1qOhHPLBqCaTUgg.OctCB_YmkhEa9QzAEOxMqI_SH96GnYn9GhIFzb16xKkg.JPEG.qazqww/chicken.jpg?type=w2"
         elif choicemenu == 'chicken cuisine(steamed chicken, samgyetang, etc..)':
-            menuurl = ""
+            menuurl = "http://postfiles9.naver.net/MjAxNzExMjFfMTUy/MDAxNTExMjM5MDA5ODE1.mrITPc20fSiOSbCBGd4RJd1C7B6JcqJzb8GrcdZ6Emkg.wD1JakLLETNWgGTNtwc6l3Rwu_2iA3ZHK3gbf4jTUXQg.JPEG.qazqww/chickencuisine.jpg?type=w2"
         elif choicemenu == 'cold noodles (of Pyongyang)':
-            menuurl = ""
+            menuurl = "http://postfiles5.naver.net/MjAxNzExMjFfODcg/MDAxNTExMjM4ODA1Nzg2.fp_wEHYXs4ZRL16mOWAkvq5RZNQV7MezT0OwsjOhnL0g.L1ylS9IdwfvSX1cZmIbOBryQfPee6eA4gIz37s0uOUEg.JPEG.qazqww/Pyongyang.jpg?type=w2"
         elif choicemenu == 'pizza':
-            menuurl = ""
-            
-        #high = ['pizza', 'jokbal/bossam', 'meat', 'buffet', 'shabu-shabu']
-    #highhigh = ['steak', 'meat', 'family restaurant', 'buffet', 'raw dishes(sashimi) / seafood']
+            menuurl = "http://postfiles12.naver.net/MjAxNzExMjFfNjkg/MDAxNTExMjM4ODAzNjAw.NG5nlHvLNl_BIV3uT51seTwlEgjmxXk000ghZkQsOB4g.8qcE4qOnPuC_S3iWRfzQB95437b_ODEGRCAP48KUVcAg.JPEG.qazqww/pizza.jpeg?type=w2"
+        elif choicemenu == 'jokbal/bossam':
+            menuurl = "http://postfiles16.naver.net/MjAxNzExMjBfMTQ5/MDAxNTExMTg3MzQ4MzYw.bpU0-Os7l1rY_QJipVJzaZr0aFJh234kAAJjqEwrIvcg.Kl4lkNgfL7ySpE_X9b9sDv_FdvF2aP6Hy62Btc-pBucg.JPEG.qazqww/jokbo.jpg?type=w2"
+        elif choicemenu == 'meat':
+            menuurl = "http://postfiles13.naver.net/MjAxNzExMjBfMjAg/MDAxNTExMTg3MzQ4NjY5.3-fMT63budFhvDez6YTPhw_iedJH9kGcvuPcM5RSqC8g.2LjN1NjaQLpCuJBEXHH3cTE1tiWaDICOdmNiuhv2E0Ug.JPEG.qazqww/meat.jpg?type=w2"
+        elif choicemenu == 'buffet':
+            menuurl = "http://postfiles13.naver.net/MjAxNzExMjFfMTIx/MDAxNTExMjM5MTYzMTk2.aneaM8HyCbF8FaVQsAsnxnTBXiNxJ-PPHl2LObsnU7Yg.0oUh1kbQZzKo0Ktcy53QM_iUDOghhTluD-Ga_57V5SAg.JPEG.qazqww/buffet.jpg?type=w2"
+        elif choicemenu == 'shabu-shabu':
+            menuurl = "http://postfiles15.naver.net/MjAxNzExMjFfMTA2/MDAxNTExMjM5MDA5OTY2.ZCY7Xwax1k3Cel3Pgsr3z2pBUoULDkGmojELaMcAzw4g.GyZ7ECuOMLoWXQ6gDn0OANf2o0307RG9f-Pr8tCfYC4g.JPEG.qazqww/shabu.jpg?type=w2"
+        elif choicemenu == 'steak':
+            menuurl = "http://postfiles8.naver.net/MjAxNzExMjBfMTE0/MDAxNTExMTg3MzQ5MzIy.NATYtaYaaTnrovin5XhxBCmg5FP8yj5mIA7cvid1Dxcg.6FOKxr4u-Ya3RoA5fC41iTHYAKrp07G5uF3msjaaWy8g.JPEG.qazqww/steak.jpg?type=w2"
+        elif choicemenu == 'raw dishes(sashimi) / seafood':
+            menuurl = "http://postfiles16.naver.net/MjAxNzExMjBfMjEz/MDAxNTExMTg3MzQ3ODcy.4ZhzBf9GpQEkTPbRymyeoeJpoCwnQbPVogzDSSlAIbog.fRyepRxUNHkPhUy1YoLLK-xlEjorAXLO4j3KzHyCOAwg.JPEG.qazqww/hoe.jpg?type=w2"
+        elif choicemenu == 'family restaurant':
+            menuurl = "http://postfiles9.naver.net/MjAxNzExMjFfNCAg/MDAxNTExMjM5MTYzMzgw.ra9xYS5FiK7CBojOwQnAro4MTA7fqeuKsMDaQamGp_Ag.-AOEDlOF5X53XEEIcgD3pQkFBq9aGSC-vVcK61XskDUg.JPEG.qazqww/family.jpg?type=w2"
     
         data_will_be_send = {
                 'message': {
