@@ -58,8 +58,8 @@ def message(request):
     'bowl of rice', 'lunch box', 'cold noodles', 'donburi', 'rice noodles', 'curry', 'japanese ramen', 'pork cutlet']
     mid = ['pasta', 'sushi', 'hamburger steak', 'fried chicken', 'chicken cuisine(steamed chicken, samgyetang, etc..)'
     , 'cold noodles (of Pyongyang)', 'donburi', 'rice noodles', 'curry', 'japanese ramen', 'pork cutlet']
-    high = ['pizza', 'steak', 'jokbal/bossam', 'meat', 'family restaurant', 'buffet', 'raw dishes(sashimi) / seafood'
-    , 'shabu-shabu']
+    high = ['pizza', 'jokbal/bossam', 'meat', 'buffet', 'shabu-shabu']
+    highhigh = ['steak', 'meat', 'family restaurant', 'buffet', 'raw dishes(sashimi) / seafood']
     choicemenu = ""
     
     if "man" in content:
@@ -79,7 +79,9 @@ def message(request):
             #     'buttons': ['Choose 1', 'Choose 2']
             # }
     elif "price" in content:
-        if int(connect_apiai.get_apiai(content)) > 12000:
+        if int(connect_apiai.get_apiai(content)) > 20000:
+            choicemenu = choice(highhigh)
+        elif int(connect_apiai.get_apiai(content)) > 12500:
             choicemenu = choice(high)
         elif int(connect_apiai.get_apiai(content)) > 7000:
             choicemenu = choice(mid)
@@ -87,6 +89,17 @@ def message(request):
             choicemenu = choice(lowmid)
         else:
             choicemenu = choice(low)
+            
+        menuurl = ""
+        
+        if choicemenu == 'ramen':
+            menuurl = "http://postfiles2.naver.net/MjAxNzExMjBfMjE5/MDAxNTExMTg3MzQ5MTIy.bIhSvEmClXmzVe3iqNrXVOF9FJM1wPeZQeo2LcR1KT8g.X06R99h23sRZxdu9IPh860HrF7ztgGF42ivS0MxlgeEg.JPEG.qazqww/ramen.jpg?type=w2"
+        elif choicemenu == 'gimbap':
+            menuurl = "http://postfiles2.naver.net/MjAxNzExMjBfMTA3/MDAxNTExMTg3MzQ3NjQ0.Pb5aVWbjBKgU0F8EZ8YBJeM4kELi--Q0d2bMO7XPWG8g.cmUSDK0amlYxENy4lPK6bzLbzzaEGW3UYyQtFKVVsXcg.JPEG.qazqww/gimbap.jpg?type=w2"
+        elif choicemenu == 'flour based food (tteok-bokki, etc.)':
+            menuurl = "http://postfiles14.naver.net/MjAxNzExMjFfMTMw/MDAxNTExMjM3NDU2Nzg5.4sSNCfOPU7duj2iIbgQ3AoWG2foxYYFsjvoHeiiRomUg.qqcqbaAJNAQXdY8g-0k9XFQm2oGEHffipGdk_luTcksg.JPEG.qazqww/1.JPG?type=w2"
+        elif choicemenu == 'lunch box':
+            menuurl = "http://postfiles1.naver.net/MjAxNzExMjFfNzYg/MDAxNTExMjM3NTU3NzQ2.3f39ZE3v9R-7Gm1fWZYxRo3fssDSkstDP5ZZS8-ZA4kg.s_JyphELSkgNGTtOOWvjRzCI00NHS9QUQ2FLinu4Qqgg.JPEG.qazqww/lunchbox.jpg?type=w2"
             
         data_will_be_send = {
                 'message': {
