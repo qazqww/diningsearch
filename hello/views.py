@@ -78,6 +78,13 @@ def message(request):
             #     'type': 'buttons',
             #     'buttons': ['Choose 1', 'Choose 2']
             # }
+    elif "command" in content:
+        data_will_be_send = {
+            'keyboard': {
+                'type': 'buttons',
+                'buttons': ['Menu list', 'Ladder game']
+                }
+            }
     elif "price" in content:
         menuurl = ""
         
