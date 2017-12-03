@@ -28,8 +28,8 @@ conn.close()
 # Create your views here.
 def index(request):
     
-    return HttpResponse(str)
-    # return HttpResponse('Hello from Python!')
+    # return HttpResponse(str)
+    return HttpResponse('Hello from Python!')
     # return render(request, 'index.html')
 
 def db(request):
@@ -48,26 +48,20 @@ def keyboard(request):
 
 @csrf_exempt
 def message(request):
-#    foodlists = Foodlist.objects.all()
-#    list1 = []
-#    str = ''
-#    for foodlist in foodlists:
-#        list1.append(foodlist)
-#        #str += "<p>{} {}<br>".format(foodlist.fname, foodlist.price)
-    
+
     json_str = ((request.body).decode('utf-8'))
     received_json_data = json.loads(json_str)
     content = received_json_data['content']
     today_date = datetime.date.today().strftime("%m %d")
     
-    low = ['ramen', 'gimbap', 'flour based food (tteok-bokki, etc.)', 'lunch box']
-    lowmid = ['chinese restau.(jajangmyeon, jjamppong, etc.)', 'sandwich', 'gukbap or jjigae', 'hamburger', 
-    'bowl of rice', 'lunch box', 'cold noodles', 'donburi', 'rice noodles', 'curry', 'japanese ramen', 'pork cutlet']
-    mid = ['pasta', 'sushi', 'hamburger steak', 'fried chicken', 'chicken cuisine(steamed chicken, samgyetang, etc..)'
-    , 'cold noodles (of Pyongyang)', 'donburi', 'rice noodles', 'curry', 'japanese ramen', 'pork cutlet']
-    high = ['pizza', 'jokbal/bossam', 'meat', 'buffet', 'shabu-shabu']
-    highhigh = ['steak', 'meat', 'family restaurant', 'buffet', 'raw dishes(sashimi) / seafood']
-    choicemenu = ""
+    #low = ['ramen', 'gimbap', 'flour based food (tteok-bokki, etc.)', 'lunch box']
+    #lowmid = ['chinese restau.(jajangmyeon, jjamppong, etc.)', 'sandwich', 'gukbap or jjigae', 'hamburger', 
+    #'bowl of rice', 'lunch box', 'cold noodles', 'donburi', 'rice noodles', 'curry', 'japanese ramen', 'pork cutlet']
+    #mid = ['pasta', 'sushi', 'hamburger steak', 'fried chicken', 'chicken cuisine(steamed chicken, samgyetang, etc..)'
+    #, 'cold noodles (of Pyongyang)', 'donburi', 'rice noodles', 'curry', 'japanese ramen', 'pork cutlet']
+    #high = ['pizza', 'jokbal/bossam', 'meat', 'buffet', 'shabu-shabu']
+    #highhigh = ['steak', 'meat', 'family restaurant', 'buffet', 'raw dishes(sashimi) / seafood']
+    #choicemenu = ""
     
     if "manman" in content:
         data_will_be_send = {
