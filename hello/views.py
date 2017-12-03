@@ -22,9 +22,6 @@ curs.execute(sql)
 
 #data Fetch
 rows = curs.fetchall()
-str = rows
-str = rows[0][0]
-print(rows[1])
 
 conn.close()
 
