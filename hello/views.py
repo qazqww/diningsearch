@@ -10,7 +10,7 @@ from . import connect_apiai
 
 from .models import Foodlist
 from random import choice
-
+"""
 #MySQL Connection
 conn = pymysql.connect(host='127.0.0.1', user='raptarior', password='', db='c9', charset='utf8')
 #Create Cursor from Connection
@@ -24,7 +24,7 @@ curs.execute(sql)
 rows = curs.fetchall()
 
 conn.close()
-
+"""
 # Create your views here.
 def index(request):
     
@@ -94,7 +94,7 @@ def message(request):
         else => print
         """
         pricechecking = 100000
-        
+        """
         while int(connect_apiai.get_apiai(content)) > pricechecking:
             i = choice(rows)
             pricechecking = choice(rows[i][1])
@@ -109,7 +109,7 @@ def message(request):
             menuurl = "http://postfiles5.naver.net/MjAxNzExMjBfNzkg/MDAxNTExMTg3MzQ5NTE5.3AqmoHH7zE4k1E4XS9_F3OwZjELbOkM5P3-zNYZ3Sfwg.p1iV7glGCOKCVpnXMw3Q_k_gVDEdQh75qxlU11wCdg4g.PNG.qazqww/whopper.png?type=w2"
         elif rows[i][0] == 'sushi':
             menuurl = "http://postfiles15.naver.net/MjAxNzExMjFfMjcw/MDAxNTExMjM4ODAzOTY2.A2LEX8awyMrz7aE7kxJ50yotAruIW5WrU0OdctCPEtog.mA_KCkWu8-X3LyAE2GmNfvgiMNop7ftd0YJkba6xkeog.JPEG.qazqww/sushi.jpg?type=w2"
-        
+        """
         data_will_be_send = {
                 'message': {
                 'text': "I recommend you to eat " + choicemenu + ".",
