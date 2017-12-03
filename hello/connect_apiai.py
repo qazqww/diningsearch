@@ -27,6 +27,10 @@ def get_apiai(message):
         return "How about " + response_obj["result"]["fulfillment"]["speech"]
     else:
         return response_obj["result"]["fulfillment"]["speech"]
+        
+    #["result"]["parameters"]["amount"] == 
+    #["result"]["parameters"]["taste"]
+    #["result"]["parameters"]["number"]
     
 #def get_price(message):
 #    ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
