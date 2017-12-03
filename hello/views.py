@@ -29,7 +29,7 @@ conn.close()
 def index(request):
     
     # return HttpResponse(str)
-    return HttpResponse('Hello from Python!')
+    # return HttpResponse('Hello from Python!')
     # return render(request, 'index.html')
 
 def db(request):
@@ -82,11 +82,6 @@ def message(request):
     elif "price" in content:
         menuurl = ""
         
-        """
-        random(rows) -> 
-        if price > rows[1] => re-random
-        else => print
-        """
         pricechecking = 100000
         """
         while int(connect_apiai.get_apiai(content)) > pricechecking:
