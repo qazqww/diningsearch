@@ -6,3 +6,6 @@ update table_name SET column_name = new_value
 WHERE column_name = some_value;
 
 alter table table_name add column column_name column_type
+
+mysqldump -u [uname] -p[pass] db_name > db_backup.sql
+$ mysql -u username -p -h localhost DATA-BASE-NAME < data.sql

@@ -8,11 +8,11 @@ from django.views.decorators.csrf import csrf_exempt
 import json, datetime, pymysql, random
 from . import connect_apiai
 
-from .models import Foodlist
+#from .models import Foodlist
 from random import choice
 
 ##MySQL Connection
-#conn = pymysql.connect(host='127.0.0.1', user='raptarior', password='', db='c9', charset='utf8')
+#conn = pymysql.connect(host='127.0.0.1', user='root', password='', db='c9', charset='utf8')
 ##Create Cursor from Connection
 #curs = conn.cursor()
 #
@@ -24,8 +24,6 @@ from random import choice
 #rows = curs.fetchall()
 #
 #conn.close()
-
-button = 0
 
 # Create your views here.
 def index(request):
@@ -101,8 +99,9 @@ def message(request):
     
     
 def updatedb(amount, taste, number, alone, meat, noodle, cheap):
+
     try:
-        conn = pymysql.connect(host='127.0.0.1', user='raptarior', password='', db='c9', charset='utf8')
+        conn = pymysql.connect(host='127.0.0.1', user='root', password='', db='c9', charset='utf8')
     except:
         return Exception
    
@@ -163,10 +162,10 @@ def updatedb(amount, taste, number, alone, meat, noodle, cheap):
     else:
         return rows[i][0]
         
-        
 def branddb(name):
+
     try:
-        conn = pymysql.connect(host='127.0.0.1', user='raptarior', password='', db='c9', charset='utf8')
+        conn = pymysql.connect(host='127.0.0.1', user='root', password='', db='c9', charset='utf8')
     except:
         return Exception
    
@@ -182,14 +181,15 @@ def branddb(name):
     conn.close()
     
     try:
-        info = rows[0][1] + rows[0][2]
+        info = "I think popular menu is " + rows[0][1] + " and price is " + rows[0][2] + "."
     except Exception:
         info = 'Please give me brand name. If you have already done so, it is not in my data, Sorry.'
     
     return info
 
-    
+
 def selecturl(url):
+    
     if url == 'gimbap':
         menuurl = "http://postfiles2.naver.net/MjAxNzExMjBfMTA3/MDAxNTExMTg3MzQ3NjQ0.Pb5aVWbjBKgU0F8EZ8YBJeM4kELi--Q0d2bMO7XPWG8g.cmUSDK0amlYxENy4lPK6bzLbzzaEGW3UYyQtFKVVsXcg.JPEG.qazqww/gimbap.jpg?type=w2"
     elif url == 'japanese ramen':
