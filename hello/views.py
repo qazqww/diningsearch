@@ -11,19 +11,21 @@ from . import connect_apiai
 from .models import Foodlist
 from random import choice
 
-#MySQL Connection
-conn = pymysql.connect(host='127.0.0.1', user='raptarior', password='', db='c9', charset='utf8')
-#Create Cursor from Connection
-curs = conn.cursor()
+##MySQL Connection
+#conn = pymysql.connect(host='127.0.0.1', user='raptarior', password='', db='c9', charset='utf8')
+##Create Cursor from Connection
+#curs = conn.cursor()
+#
+##SQL words
+#sql = "select * from food"
+#curs.execute(sql)
+#
+##data Fetch
+#rows = curs.fetchall()
+#
+#conn.close()
 
-#SQL words
-sql = "select * from food"
-curs.execute(sql)
-
-#data Fetch
-rows = curs.fetchall()
-
-conn.close()
+button = 0
 
 # Create your views here.
 def index(request):
@@ -54,87 +56,138 @@ def message(request):
     content = received_json_data['content']
     today_date = datetime.date.today().strftime("%m %d")
     
-    if "db" in content:
+    if "ladder" in content:
         data_will_be_send = {
             'message': {
-                'text': rows[0][0]
+                'text': 'This is a ladder game in Naver site.',
+                'photo': {
+                  'url': 'http://postfiles2.naver.net/MjAxNzEyMTBfNzQg/MDAxNTEyODg3NjgzMjQz.dvjrBo0XXmyYBfOQv4L49X3kVe7U2CPgYDot_L5eD7wg.RA9OzNfuZm7TKdZxObwahDuB26-Fg2JC6Dd99BoE7_Yg.JPEG.qazqww/222.jpg?type=w2',
+                  'width': 640,
+                  'height': 480
+                },
+                'message_button': {
+                  'label': 'LADDER GAME',
+                  'url': 'https://m.search.naver.com/search.naver?sm=tab_hty&where=nexearch&query=%B3%D7%C0%CC%B9%F6%BB%E7%B4%D9%B8%AE&x=26&y=26'
+                }
             }
         }
     
-    #connect_apiai.get_apiai(content)
-    #elif connect_apiai.Ramount != "" or connect_apiai.Rtaste != "" or connect_apiai.Rnumber != "" or connect_apiai.Ralone != "":
-    #    #MySQL Connection
-    #    conn = pymysql.connect(host='127.0.0.1', user='raptarior', password='', db='c9', charset='utf8')
-    #    #Create Cursor from Connection
-    #    curs = conn.cursor()
-    #    
-    #    #SQL words
-    #    sql = "SELECT * FROM FOOD WHERE"
-    #    if connect_apiai.Ramount == "light":
-    #        sql += "amount = 0 and"
-    #    if connect_apiai.Rtaste == "spicy":
-    #        sql += "spicy = 1 and"
-    #    if connect_apiai.Ralone == "alone":
-    #        sql += "alone = 1 and"
-    #    if connect_apiai.Rnumber != "":
-    #        sql += connect_apiai.Rnumber + " > price"
-    #    else:
-    #        sql += "price <> 0"
-    #    
-    #    curs.execute(sql)
-    #    #data Fetch
-    #    rows = curs.fetchall()
-    #    conn.close()
-    #
-    #    #length = len(rows)
-    #    #i = random.randint(0, length)
-    #    i = 1
-    #    
-    #    menuurl = selecturl(rows[i][0])
-    #    
-    #    data_will_be_send = {
-    #            'message': {
-    #            'text': "I recommend you to eat " + rows[i][0] + ".",
-    #            'photo': {
-    #                'url': menuurl,
-    #                'width': 640,
-    #                'height': 480
-    #                }
-    #            }
-    #        }
-    
-    elif "price" in content:
-        menuurl = ""
-        pricechecking = 0
+    else:
+        selected = connect_apiai.get_apiai(content)
+        urlurl = selecturl(selected)
 
-        while 1:
-            length = len(rows)
-            i = random.randint(0, length)
-            if connect_apiai.get_apiai(content) > rows[i][1]:
-               break;
-        
-        menuurl = selecturl(rows[i][0])
-
-        data_will_be_send = {
+        if urlurl == 'nothing':
+            data_will_be_send = {
                 'message': {
-                'text': "I recommend you to eat " + rows[i][0] + ".",
+                    'text': connect_apiai.get_apiai(content)
+                }
+            }
+            
+        else:
+            data_will_be_send = {
+                'message': {
+                'text': "I recommend you to eat " + selected + ".",
                 'photo': {
-                    'url': menuurl,
+                    'url': urlurl,
                     'width': 640,
                     'height': 480
                     }
                 }
             }
-    else:
-        data_will_be_send = {
-            'message': {
-                'text': connect_apiai.get_apiai(content)
-            }
-        }
-        
+       
     return JsonResponse(data_will_be_send)
     
     ######commit please
+    
+    
+def updatedb(amount, taste, number, alone, meat, noodle, cheap):
+    try:
+        conn = pymysql.connect(host='127.0.0.1', user='raptarior', password='', db='c9', charset='utf8')
+    except:
+        return Exception
+   
+    #Create Cursor from Connection
+    curs = conn.cursor()
+   
+    #SQL words
+    sql = "SELECT * FROM food where"
+    if amount == "light":
+        sql += " amount = 0 AND"
+    elif amount == "substantial":
+        sql += " amount = 1 AND"
+        
+    if taste == "spicy":
+        sql += " spicy = 1 AND"
+    elif taste == "mild":
+        sql += " spicy = 0 AND"
+        
+    if alone == "alone":
+        sql += " alone = 1 AND"
+        
+    if meat == "meat" and noodle == "noodle":
+        " (MEAT = 1 OR noodle = 1)"
+    else:
+        if meat == "meat":
+            sql += " MEAT = 1 AND"
+        elif meat == "not meat":
+            sql += " MEAT = 0 AND"
+        if noodle == "noodle":
+            sql += " noodle = 1 AND"
+            
+    if number != "":
+        sql += " price < " + str(number)
+    elif cheap != "":
+        if cheap == "cheap":
+            sql += " price < 4000"
+        elif cheap == "expensive":
+            sql += " price > 10000"
+    #    if number >= 5000:
+    #        sql += " AND price > " + str(int(number) - 5000)
+    else:
+        sql += " price <> 0;"
+    
+    curs.execute(sql)
+    #data Fetch
+    rows = curs.fetchall()
+    conn.close()
+    
+    try:
+        i = random.randint(0, len(rows)-1)
+    except Exception:
+        return 'Nothing!'
+    
+    #menuurl = views.selecturl(rows[i][0])
+    
+    if len(rows) == 0:
+        return 'Nothing!'
+    else:
+        return rows[i][0]
+        
+        
+def branddb(name):
+    try:
+        conn = pymysql.connect(host='127.0.0.1', user='raptarior', password='', db='c9', charset='utf8')
+    except:
+        return Exception
+   
+    #Create Cursor from Connection
+    curs = conn.cursor()
+   
+    #SQL words
+    sql = "SELECT * FROM best where brand = '" + name + "';"
+    
+    curs.execute(sql)
+    #data Fetch
+    rows = curs.fetchall()
+    conn.close()
+    
+    try:
+        info = rows[0][1] + rows[0][2]
+    except Exception:
+        info = 'Please give me brand name. If you have already done so, it is not in my data, Sorry.'
+    
+    return info
+
     
 def selecturl(url):
     if url == 'gimbap':
@@ -183,7 +236,7 @@ def selecturl(url):
         menuurl = "http://postfiles5.naver.net/MjAxNzExMjFfODcg/MDAxNTExMjM4ODA1Nzg2.fp_wEHYXs4ZRL16mOWAkvq5RZNQV7MezT0OwsjOhnL0g.L1ylS9IdwfvSX1cZmIbOBryQfPee6eA4gIz37s0uOUEg.JPEG.qazqww/Pyongyang.jpg?type=w2"
     elif url == 'pizza':
         menuurl = "http://postfiles12.naver.net/MjAxNzExMjFfNjkg/MDAxNTExMjM4ODAzNjAw.NG5nlHvLNl_BIV3uT51seTwlEgjmxXk000ghZkQsOB4g.8qcE4qOnPuC_S3iWRfzQB95437b_ODEGRCAP48KUVcAg.JPEG.qazqww/pizza.jpeg?type=w2"
-    elif url == 'jokbal/bossam':
+    elif url == 'jokbal and bossam':
         menuurl = "http://postfiles16.naver.net/MjAxNzExMjBfMTQ5/MDAxNTExMTg3MzQ4MzYw.bpU0-Os7l1rY_QJipVJzaZr0aFJh234kAAJjqEwrIvcg.Kl4lkNgfL7ySpE_X9b9sDv_FdvF2aP6Hy62Btc-pBucg.JPEG.qazqww/jokbo.jpg?type=w2"
     elif url == 'meat':
         menuurl = "http://postfiles13.naver.net/MjAxNzExMjBfMjAg/MDAxNTExMTg3MzQ4NjY5.3-fMT63budFhvDez6YTPhw_iedJH9kGcvuPcM5RSqC8g.2LjN1NjaQLpCuJBEXHH3cTE1tiWaDICOdmNiuhv2E0Ug.JPEG.qazqww/meat.jpg?type=w2"
@@ -197,6 +250,9 @@ def selecturl(url):
         menuurl = "http://postfiles16.naver.net/MjAxNzExMjBfMjEz/MDAxNTExMTg3MzQ3ODcy.4ZhzBf9GpQEkTPbRymyeoeJpoCwnQbPVogzDSSlAIbog.fRyepRxUNHkPhUy1YoLLK-xlEjorAXLO4j3KzHyCOAwg.JPEG.qazqww/hoe.jpg?type=w2"
     elif url == 'family restaurant':
         menuurl = "http://postfiles9.naver.net/MjAxNzExMjFfNCAg/MDAxNTExMjM5MTYzMzgw.ra9xYS5FiK7CBojOwQnAro4MTA7fqeuKsMDaQamGp_Ag.-AOEDlOF5X53XEEIcgD3pQkFBq9aGSC-vVcK61XskDUg.JPEG.qazqww/family.jpg?type=w2"
+    else:
+        menuurl = "nothing"
+    
     return menuurl
 
 #@csrf_exempt

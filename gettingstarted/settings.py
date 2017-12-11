@@ -96,8 +96,6 @@ DATABASES = {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
-
-#mysql-ctl cli
 }
 
 # Password validation
@@ -153,4 +151,6 @@ STATICFILES_DIRS = (
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+GOOGLE_MAPS_API_KEY = 'AIzaSyDXC_8XJIfxoOi5LjD3rle-KnAX6TtnEPE'
 

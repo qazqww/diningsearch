@@ -1,0 +1,8 @@
+mysql-ctl cli
+
+Insert into table_name (column1, column2, column3, ...) values (data1, data2, data3, ...);
+
+update table_name SET column_name = new_value
+WHERE column_name = some_value;
+
+alter table table_name add column column_name column_type
