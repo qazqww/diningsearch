@@ -1,3 +1,9 @@
+숭실대학교 HCI 수업에서 만든 음식메뉴 추천 챗봇입니다.
+카카오톡 플러스친구에서 이용할 수 있습니다. (현재는 비활성화 상태)
+Python 코드와 Dialogflow라는 챗봇 API를 통해 만들어졌습니다.
+
+
+
 # Python: Getting Started
 
 A barebones Django app, which can easily be deployed to Heroku.
